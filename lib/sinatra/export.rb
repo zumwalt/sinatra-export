@@ -143,7 +143,7 @@ module Sinatra
       # @yield [builder] Gives a Builder instance to the block (see Builder) that is called for every path visited.
       # @return [self]
       def build!(&block)
-        dir = Pathname( ENV["EXPORT_BUILD_DIR"] || app.public_folder )
+        dir = Pathname( ENV["EXPORT_BUILD_DIR"] )
         handle_error_dir_not_found!(dir) unless dir.exist? && dir.directory?
 
         if @use_routes
